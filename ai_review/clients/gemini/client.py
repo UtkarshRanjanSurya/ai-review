@@ -19,7 +19,7 @@ class GeminiHTTPClient(HTTPClient, GeminiHTTPClientProtocol):
     async def chat_api(self, request: GeminiChatRequestSchema) -> Response:
         meta = settings.llm.meta
         return await self.post(
-            f"/v1beta/models/{meta.model}:generateContent",
+            f"/v1/models/{meta.model}:generateContent",
             json=request.model_dump(exclude_none=True)
         )
 
